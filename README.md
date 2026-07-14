@@ -58,11 +58,11 @@ One fraud flag → at most one investigation, handled by one analyst
 The full ER diagram
 (ER Diagram image).
 
-4. Database Creation
+## 4. Database Creation
 
 04_database_creation/phase4_database_creation.sql — creates the tablespace, schema user (Dianna_26585_2024_FraudDetection_DB), and grants privileges (session, table, view, sequence, procedure, trigger, synonym).
 
-5. Table Implementation
+## 5. Table Implementation
 
 05_table_implementation/phase5_table_implementation.sql — creates all 11 tables with PK/FK/NOT NULL/UNIQUE/CHECK constraints, plus meaningful sample data.
 
