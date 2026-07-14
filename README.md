@@ -64,11 +64,9 @@ The full ER diagram
 ## 5. Table Implementation
 (table implementation sql script)
 
-6. PL/SQL Programming
-
-06_plsql/phase6_plsql.sql — includes:
-
-
+## 6. PL/SQL Programming
+# PL/SQL Programming sql script
+# includes:
 fn_calculate_risk_score (function)
 pr_register_transaction (parameterized procedure with cursor + exception handling)
 fraud_pkg (package: register/investigate/close/report)
