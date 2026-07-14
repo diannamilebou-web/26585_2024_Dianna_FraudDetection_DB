@@ -80,20 +80,3 @@ trg_block_weekday_holiday_dml — compound trigger enforcing the mandatory busin
 trg_audit_account, trg_audit_fraud_flag — row-level audit logging
 trg_track_logon — user activity/session tracking
 trg_protect_customer_delete — security restriction example
-
-
-8. Innovation Component
-
-The innovation layer is a Power BI dashboard connected directly to the Oracle schema, giving fraud analysts a live view of system activity beyond raw SQL output. It includes:
-
-
-Fraud trend overview — flagged transactions over time, broken down by severity level (LOW/MEDIUM/HIGH/CRITICAL)
-Risk score distribution — histogram of fraud_flag.risk_score across all flagged transactions
-Rule performance — which fraud_rule entries trigger the most flags, to evaluate rule effectiveness
-Investigation funnel — how many flags are OPEN vs UNDER_REVIEW vs CONFIRMED_FRAUD vs FALSE_POSITIVE
-Agent/device risk map — transaction volume and flag rate by agent location and device type
-
-
-Connection: Power BI's Oracle connector, pointed at the ORCLPDB service, authenticated as a read-only account granted SELECT on transaction_, fraud_flag, fraud_rule, and investigation (via the fraud_analyst_role created in Phase IV).
-
-Files and the .pbix dashboard are stored in innovation/.
