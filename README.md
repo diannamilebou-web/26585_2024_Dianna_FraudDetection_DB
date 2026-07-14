@@ -31,33 +31,32 @@ If a threshold is breached, the System automatically creates a fraud_flag record
 Picks up the open flag, opens an investigation, and records notes.
 # The Analyst or Risk Manager
 closes the investigation with an outcome (FRAUD_CONFIRMED, FALSE_POSITIVE, or INCONCLUSIVE), which updates the flag's resolution status.
-Every step — account changes, flag status changes, logons — is written to audit_log / session_log for compliance review.
+# Every step 
+Account changes, flag status changes, logons — is written to audit_log / session_log for compliance review.
 
 The BPMN swimlane diagram is 
 (business_process_modeling image).
 
-3. Logical Database Design (3NF)
+## 3. Logical Database Design (3NF)
 
-Entities: CUSTOMER, DEVICE, AGENT, ACCOUNT, TRANSACTION_, FRAUD_RULE, FRAUD_FLAG, ANALYST, INVESTIGATION, PUBLIC_HOLIDAY, AUDIT_LOG, SESSION_LOG.
+# Entities:
+CUSTOMER, DEVICE, AGENT, ACCOUNT, TRANSACTION_, FRAUD_RULE, FRAUD_FLAG, ANALYST, INVESTIGATION, PUBLIC_HOLIDAY, AUDIT_LOG, SESSION_LOG.
 
-Key relationships:
-
-
+# Key relationships:
 One customer → many accounts, many devices (1:M)
 One transaction → sender account, receiver account, optional agent, and device (FK links)
 One transaction → zero or more fraud flags; each flag references the rule that triggered it
 One fraud flag → at most one investigation, handled by one analyst
 
-
-Why this is in 3NF:
-
+# Why this is in 3NF:
 
 1NF: every attribute is atomic — no repeating groups or comma-separated values in any column.
 2NF: every table uses a single-column surrogate primary key (_id), so no partial dependency is possible.
 3NF: no transitive dependencies — e.g. agent_name and location live only in AGENT, not repeated on every TRANSACTION_ row; a transaction only stores agent_id and looks the rest up via the foreign key.
 
 
-The full ER diagram is in 03_logical_design/.
+The full ER diagram
+(ER Diagram image).
 
 4. Database Creation
 
