@@ -73,11 +73,9 @@ fraud_pkg (package: register/investigate/close/report)
 Demo test calls with expected outputs
 
 
-7. Triggers, Auditing & Security
-
-07_triggers_audit/phase7_triggers_audit.sql — includes:
-
-
+## 7. Triggers, Auditing & Security
+(triggers_audit sql script)
+# includes:
 trg_block_weekday_holiday_dml — compound trigger enforcing the mandatory business rule (blocks DML on weekdays and public holidays)
 trg_audit_account, trg_audit_fraud_flag — row-level audit logging
 trg_track_logon — user activity/session tracking
